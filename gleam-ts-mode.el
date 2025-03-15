@@ -436,5 +436,10 @@ otherwise, it aligns with the initial expression."
    (t
     (message "Cannot load tree-sitter-gleam.  Try running `gleam-ts-install-grammar' and report a bug if the issue reoccurs."))))
 
+;;;###autoload
+(with-eval-after-load 'eglot
+  (setf (alist-get 'gleam-ts-mode eglot-server-programs)
+        '("gleam" "lsp")))
+
 (provide 'gleam-ts-mode)
 ;;; gleam-ts-mode.el ends here
